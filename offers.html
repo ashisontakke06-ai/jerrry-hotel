@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Special Offers & Packages | Jerry Hotel Luxury Stay Privileges</title>
+    <meta name="description" content="Unlock extraordinary savings and bespoke privileges with Jerry Hotel exclusive getaway packages, romance suites, and seasonal promotions." />
+    <meta property="og:title" content="Special Offers & Packages | Jerry Hotel" />
+    <meta property="og:description" content="Unlock extraordinary luxury privileges at Jerry Hotel." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1400&q=80" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+  </head>
+  <body>
+    <!-- Announcement Bar -->
+    <div class="announcement-bar">
+      <div class="container">
+        <div class="announcement-content">
+          <span class="announcement-badge">Privilege</span>
+          <span>Complimentary Airport Limousine on Suites · Use Promo Code <strong style="color: var(--gold-primary);">JERRYLUX</strong> for 15% Off Demo Bookings</span>
+        </div>
+        <button class="announcement-close" aria-label="Close Announcement">&times;</button>
+      </div>
+    </div>
+
+    <!-- Header Navigation -->
+    <header class="site-header">
+      <div class="container nav-container">
+        <a href="index.html" class="brand-logo" aria-label="Jerry Hotel Home">
+          <div class="brand-crest">J</div>
+          <div class="brand-text">
+            <span class="brand-name">Jerry Hotel</span>
+            <span class="brand-stars">★★★★★ LUXURY RESORT</span>
+          </div>
+        </a>
+
+        <nav class="nav-menu" aria-label="Main Navigation">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="about.html" class="nav-link">About</a>
+          <a href="rooms.html" class="nav-link">Rooms</a>
+          <a href="restaurant.html" class="nav-link">Restaurant</a>
+          <a href="amenities.html" class="nav-link">Amenities</a>
+          <a href="offers.html" class="nav-link active">Offers</a>
+          <a href="gallery.html" class="nav-link">Gallery</a>
+          <a href="events.html" class="nav-link">Events</a>
+          <a href="reviews.html" class="nav-link">Reviews</a>
+          <a href="blog.html" class="nav-link">Blog</a>
+          <a href="contact.html" class="nav-link">Contact</a>
+          <a href="admin/index.html" class="nav-link" style="color: var(--gold-light);">Admin Demo</a>
+          <a href="booking.html" class="btn btn-primary btn-sm btn-mobile-book" style="display: none;">Book Your Stay</a>
+        </nav>
+
+        <div class="nav-actions">
+          <button class="theme-toggle" aria-label="Toggle Theme Mode">☼</button>
+          <a href="login.html" class="nav-link" title="Guest Portal" style="font-size: 0.8125rem;">Sign In</a>
+          <a href="booking.html" class="btn btn-primary btn-sm btn-book-now">Book Your Stay</a>
+          <button class="mobile-toggle" aria-label="Toggle Navigation Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+      <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1600&q=80" alt="Special Offers" class="page-header-bg" />
+      <div class="container">
+        <span class="sub-title">Exclusive Getaways</span>
+        <h1>Curated Offers & Packages</h1>
+        <div class="breadcrumbs">
+          <a href="index.html">Home</a>
+          <span>/</span>
+          <span class="current">Offers</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Coupon Code Validator (Demo) -->
+    <section class="section-sm section-surface" style="border-bottom: 1px solid var(--border-subtle);">
+      <div class="container" style="max-width: 700px; text-align: center;">
+        <span class="sub-title">Test Your Privilege Code</span>
+        <h3 style="margin-bottom: 1rem;">Validate Demo Coupon</h3>
+        <p style="color: var(--text-secondary); font-size: 0.875rem; margin-bottom: 1.5rem;">
+          Try codes like <strong style="color: var(--gold-primary);">JERRYLUX</strong> (15% off), <strong style="color: var(--gold-primary);">HONEYMOON</strong> (₹5,000 off), or <strong style="color: var(--gold-primary);">WELCOME10</strong> (10% off).
+        </p>
+
+        <div style="display: flex; gap: 0.75rem; justify-content: center;">
+          <input type="text" id="demo-check-coupon" class="form-control" placeholder="Enter coupon code..." style="max-width: 320px; text-transform: uppercase;" />
+          <button type="button" id="btn-validate-coupon" class="btn btn-primary">Check Validity</button>
+        </div>
+        <div id="demo-coupon-result" style="margin-top: 1rem; font-size: 0.875rem; font-weight: 600;"></div>
+      </div>
+    </section>
+
+    <!-- Offers Grid Section -->
+    <section class="section section-dark">
+      <div class="container">
+        <div class="grid-3">
+          <!-- Offer 1 -->
+          <div class="offer-card reveal">
+            <div class="offer-media">
+              <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=800&q=80" alt="Royal Weekend Escape" class="offer-img" />
+              <span class="offer-tag">15% Off</span>
+            </div>
+            <div class="offer-body">
+              <h3 class="offer-title">The Royal Weekend Escape</h3>
+              <p class="offer-desc">
+                Two-night weekend stay in our Executive or Family Suite. Includes champagne breakfast, late 4:00 PM check-out, and 20% savings on signature spa therapies.
+              </p>
+              <ul style="font-size: 0.8125rem; color: var(--text-secondary); margin-bottom: 1.5rem; display: flex; flex-direction: column; gap: 0.35rem;">
+                <li>✦ Valid on Friday through Sunday stays</li>
+                <li>✦ Complimentary afternoon high tea for two</li>
+                <li>✦ Free cancel up to 24 hours prior</li>
+              </ul>
+              <div class="offer-meta">
+                <span>Code: <span class="coupon-code">JERRYLUX</span></span>
+                <a href="booking.html?coupon=JERRYLUX" class="btn btn-primary btn-sm">Book This Offer</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Offer 2 -->
+          <div class="offer-card reveal">
+            <div class="offer-media">
+              <img src="https://images.unsplash.com/photo-1578683010236-d716f9a3f461?auto=format&fit=crop&w=800&q=80" alt="Honeymoon Romance" class="offer-img" />
+              <span class="offer-tag">Celebration</span>
+            </div>
+            <div class="offer-body">
+              <h3 class="offer-title">Enchanted Romance & Honeymoon</h3>
+              <p class="offer-desc">
+                An unforgettable romantic getaway. Chilled Dom Pérignon champagne, rose petal bath ritual, 5-course rooftop dinner, and couples aromatherapy massage.
+              </p>
+              <ul style="font-size: 0.8125rem; color: var(--text-secondary); margin-bottom: 1.5rem; display: flex; flex-direction: column; gap: 0.35rem;">
+                <li>✦ Minimum 2 nights in Premium King or Suite</li>
+                <li>✦ Candlelight rooftop dinner included</li>
+                <li>✦ ₹5,000 flat promotional credit applied</li>
+              </ul>
+              <div class="offer-meta">
+                <span>Code: <span class="coupon-code">HONEYMOON</span></span>
+                <a href="booking.html?coupon=HONEYMOON" class="btn btn-primary btn-sm">Book This Offer</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Offer 3 -->
+          <div class="offer-card reveal">
+            <div class="offer-media">
+              <img src="https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&w=800&q=80" alt="Corporate Executive" class="offer-img" />
+              <span class="offer-tag">Business Privilege</span>
+            </div>
+            <div class="offer-body">
+              <h3 class="offer-title">Corporate Executive Stay</h3>
+              <p class="offer-desc">
+                Tailored for business leaders. Unlimited Jerry Club lounge access, pressing of two suits daily, airport transfer, and high-speed boardroom access.
+              </p>
+              <ul style="font-size: 0.8125rem; color: var(--text-secondary); margin-bottom: 1.5rem; display: flex; flex-direction: column; gap: 0.35rem;">
+                <li>✦ Flexible cancellation anytime</li>
+                <li>✦ Complimentary breakfast buffet</li>
+                <li>✦ 10% welcome privilege applied</li>
+              </ul>
+              <div class="offer-meta">
+                <span>Code: <span class="coupon-code">WELCOME10</span></span>
+                <a href="booking.html?coupon=WELCOME10" class="btn btn-primary btn-sm">Book This Offer</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Offer 4 -->
+          <div class="offer-card reveal">
+            <div class="offer-media">
+              <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=800&q=80" alt="Family Vacation" class="offer-img" />
+              <span class="offer-tag">Family Haven</span>
+            </div>
+            <div class="offer-body">
+              <h3 class="offer-title">Family Grand Suite Retreat</h3>
+              <p class="offer-desc">
+                Interconnected suites with special children amenities, complimentary breakfast for all four guests, and tickets to local heritage museums.
+              </p>
+              <ul style="font-size: 0.8125rem; color: var(--text-secondary); margin-bottom: 1.5rem; display: flex; flex-direction: column; gap: 0.35rem;">
+                <li>✦ Children under 12 dine with our compliments</li>
+                <li>✦ In-suite gaming console provided</li>
+              </ul>
+              <div class="offer-meta">
+                <span>Code: <span class="coupon-code">JERRYLUX</span></span>
+                <a href="booking.html?coupon=JERRYLUX" class="btn btn-primary btn-sm">Book This Offer</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Offer 5 -->
+          <div class="offer-card reveal">
+            <div class="offer-media">
+              <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80" alt="Wellness Spa Retreat" class="offer-img" />
+              <span class="offer-tag">Wellness</span>
+            </div>
+            <div class="offer-body">
+              <h3 class="offer-title">Serenity & Spa Rejuvenation</h3>
+              <p class="offer-desc">
+                Immerse in holistic renewal. Includes daily 90-minute spa treatments at Royal Oasis, personalized nutritional consultation, and private yoga.
+              </p>
+              <ul style="font-size: 0.8125rem; color: var(--text-secondary); margin-bottom: 1.5rem; display: flex; flex-direction: column; gap: 0.35rem;">
+                <li>✦ Full hydrotherapy thermal pass</li>
+                <li>✦ Organic herbal elixir welcome gift</li>
+              </ul>
+              <div class="offer-meta">
+                <span>Code: <span class="coupon-code">JERRYLUX</span></span>
+                <a href="booking.html?coupon=JERRYLUX" class="btn btn-primary btn-sm">Book This Offer</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Offer 6 -->
+          <div class="offer-card reveal">
+            <div class="offer-media">
+              <img src="https://images.unsplash.com/photo-1591088398332-8a7791972843?auto=format&fit=crop&w=800&q=80" alt="Presidential Flagship" class="offer-img" />
+              <span class="offer-tag">Ultimate Luxury</span>
+            </div>
+            <div class="offer-body">
+              <h3 class="offer-title">Presidential Pinnacle Experience</h3>
+              <p class="offer-desc">
+                The absolute height of five-star hospitality. Three nights in the Presidential Suite with dedicated head butler, private chef, and limousine at your disposal.
+              </p>
+              <ul style="font-size: 0.8125rem; color: var(--text-secondary); margin-bottom: 1.5rem; display: flex; flex-direction: column; gap: 0.35rem;">
+                <li>✦ 24/7 private limousine chauffeur</li>
+                <li>✦ Custom in-suite dining banquet</li>
+              </ul>
+              <div class="offer-meta">
+                <span>Code: <span class="coupon-code">JERRYLUX</span></span>
+                <a href="booking.html?coupon=JERRYLUX" class="btn btn-primary btn-sm">Book This Offer</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Terms and Conditions for Offers -->
+    <section class="section section-surface" style="padding: 60px 0;">
+      <div class="container" style="max-width: 900px;">
+        <h4 style="color: var(--gold-primary); margin-bottom: 1rem;">Terms & Conditions for Promotional Offers (Demonstration)</h4>
+        <ul style="font-size: 0.8125rem; color: var(--text-secondary); display: flex; flex-direction: column; gap: 0.5rem; line-height: 1.7;">
+          <li>• All packages and promotional coupons are for frontend demonstration purposes only and simulate luxury hotel reservation mechanics.</li>
+          <li>• Promo codes are validated live in JavaScript during checkout: <strong>JERRYLUX</strong> grants 15% off total, <strong>WELCOME10</strong> grants 10% off, and <strong>HONEYMOON</strong> applies ₹5,000 discount.</li>
+          <li>• Complimentary cancellation is simulated up to 24 hours prior to scheduled arrival.</li>
+          <li>• Subject to demo room availability upon selection.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-top">
+          <div class="footer-brand">
+            <div class="brand-logo">
+              <div class="brand-crest">J</div>
+              <div class="brand-text">
+                <span class="brand-name">Jerry Hotel</span>
+                <span class="brand-stars">★★★★★ LUXURY RESORT</span>
+              </div>
+            </div>
+            <p>
+              "Experience Luxury. Discover Comfort." Jerry Hotel is a flagship 5-star haven dedicated to timeless elegance, exquisite culinary journeys, and heartfelt hospitality.
+            </p>
+          </div>
+
+          <div>
+            <h4 class="footer-title">The Hotel</h4>
+            <ul class="footer-links">
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="rooms.html">Rooms & Suites</a></li>
+              <li><a href="restaurant.html">Dining & Bar</a></li>
+              <li><a href="amenities.html">Wellness & Spa</a></li>
+              <li><a href="offers.html">Special Offers</a></li>
+              <li><a href="gallery.html">Visual Gallery</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="footer-title">Guest Services</h4>
+            <ul class="footer-links">
+              <li><a href="booking.html">Reserve a Stay</a></li>
+              <li><a href="my-bookings.html">My Bookings</a></li>
+              <li><a href="events.html">Weddings & Events</a></li>
+              <li><a href="reviews.html">Guest Reviews</a></li>
+              <li><a href="faq.html">Hotel FAQs</a></li>
+              <li><a href="contact.html">Contact Concierge</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="footer-title">Legal & Policies</h4>
+            <ul class="footer-links">
+              <li><a href="privacy-policy.html">Privacy Policy</a></li>
+              <li><a href="terms.html">Terms & Conditions</a></li>
+              <li><a href="cancellation-policy.html">Cancellation Policy</a></li>
+              <li><a href="admin/index.html">Admin Portal Demo</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-newsletter">
+            <h4 class="footer-title">Privilege Newsletter</h4>
+            <p style="font-size: 0.8125rem; color: var(--text-secondary); margin-bottom: 1rem;">
+              Subscribe to receive private invitations to seasonal chef tables, suite upgrades, and bespoke getaway privileges.
+            </p>
+            <form class="newsletter-form">
+              <div class="newsletter-input-group">
+                <input type="email" placeholder="Your email address" required />
+                <button type="submit">Join</button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>© 2026 Jerry Hotel. All rights reserved. Designed for supreme luxury hospitality.</p>
+          <div class="footer-legal-links">
+            <a href="privacy-policy.html">Privacy</a>
+            <a href="terms.html">Terms</a>
+            <a href="cancellation-policy.html">Cancellation</a>
+            <a href="admin/index.html">Admin</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Floating Actions -->
+    <div class="floating-widgets">
+      <a href="https://wa.me/919876543210?text=Hello%20Jerry%20Hotel,%20I%20would%20like%20to%20inquire%20about%20a%20luxury%20stay" target="_blank" rel="noopener noreferrer" class="floating-btn floating-whatsapp" title="WhatsApp Concierge" aria-label="WhatsApp Concierge">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.885-9.885 9.885m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+      </a>
+      <button class="floating-btn floating-concierge" title="Jerry AI Concierge Assistant" aria-label="Virtual Concierge">✦</button>
+      <button class="floating-btn back-to-top" title="Back to Top" aria-label="Scroll to top">↑</button>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script>
+      // Coupon validator demo script for offers page
+      document.getElementById('btn-validate-coupon').addEventListener('click', function () {
+        const input = document.getElementById('demo-check-coupon');
+        const res = document.getElementById('demo-check-coupon-result') || document.getElementById('demo-coupon-result');
+        const code = input.value.trim().toUpperCase();
+
+        if (code === 'JERRYLUX') {
+          res.textContent = '✓ Active: 15% Off Jerry Luxury Privilege code is valid for all bookings!';
+          res.style.color = '#10b981';
+        } else if (code === 'HONEYMOON') {
+          res.textContent = '✓ Active: ₹5,000 Off Celebration & Honeymoon Privilege code is valid!';
+          res.style.color = '#10b981';
+        } else if (code === 'WELCOME10') {
+          res.textContent = '✓ Active: 10% Welcome Stay Privilege code is valid!';
+          res.style.color = '#10b981';
+        } else {
+          res.textContent = '✕ Invalid promo code. Try JERRYLUX, HONEYMOON, or WELCOME10.';
+          res.style.color = '#ef4444';
+        }
+      });
+    </script>
+  </body>
+</html>

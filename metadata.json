@@ -1,0 +1,6 @@
+{
+  "name": "Jerry Hotel - Luxury 5-Star Hotel & Suites",
+  "description": "Experience luxury and discover comfort at Jerry Hotel. Premium suites, fine dining, bespoke wellness, and world-class hospitality.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

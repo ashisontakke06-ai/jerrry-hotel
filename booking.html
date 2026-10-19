@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reserve Your Stay | Jerry Hotel Online Booking Engine</title>
+    <meta name="description" content="Reserve your luxury stay at Jerry Hotel. Seamless multi-step booking, instant live calculation, and tailored luxury privileges." />
+    <meta property="og:title" content="Reserve Your Stay | Jerry Hotel" />
+    <meta property="og:description" content="Reserve your luxury stay at Jerry Hotel. Seamless multi-step booking." />
+    <meta property="og:type" content="website" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+    <style>
+      .booking-wizard-nav {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 2.5rem;
+        border-bottom: 1px solid var(--border-subtle);
+        padding-bottom: 1.5rem;
+        gap: 2rem;
+        flex-wrap: wrap;
+      }
+      .booking-wizard-step {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        color: var(--text-muted);
+        font-size: 0.875rem;
+        font-weight: 500;
+      }
+      .booking-wizard-step.active {
+        color: var(--gold-primary);
+        font-weight: 600;
+      }
+      .booking-wizard-step.completed {
+        color: #10b981;
+      }
+      .step-circle {
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        border: 1.5px solid currentColor;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.75rem;
+        font-weight: 700;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Announcement Bar -->
+    <div class="announcement-bar">
+      <div class="container">
+        <div class="announcement-content">
+          <span class="announcement-badge">Privilege</span>
+          <span>Complimentary Airport Limousine on Suites · Use Promo Code <strong style="color: var(--gold-primary);">JERRYLUX</strong> for 15% Off Demo Bookings</span>
+        </div>
+        <button class="announcement-close" aria-label="Close Announcement">&times;</button>
+      </div>
+    </div>
+
+    <!-- Header Navigation -->
+    <header class="site-header">
+      <div class="container nav-container">
+        <a href="index.html" class="brand-logo" aria-label="Jerry Hotel Home">
+          <div class="brand-crest">J</div>
+          <div class="brand-text">
+            <span class="brand-name">Jerry Hotel</span>
+            <span class="brand-stars">★★★★★ LUXURY RESORT</span>
+          </div>
+        </a>
+
+        <nav class="nav-menu" aria-label="Main Navigation">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="about.html" class="nav-link">About</a>
+          <a href="rooms.html" class="nav-link">Rooms</a>
+          <a href="restaurant.html" class="nav-link">Restaurant</a>
+          <a href="amenities.html" class="nav-link">Amenities</a>
+          <a href="offers.html" class="nav-link">Offers</a>
+          <a href="gallery.html" class="nav-link">Gallery</a>
+          <a href="events.html" class="nav-link">Events</a>
+          <a href="reviews.html" class="nav-link">Reviews</a>
+          <a href="blog.html" class="nav-link">Blog</a>
+          <a href="contact.html" class="nav-link">Contact</a>
+          <a href="admin/index.html" class="nav-link" style="color: var(--gold-light);">Admin Demo</a>
+          <a href="booking.html" class="btn btn-primary btn-sm btn-mobile-book" style="display: none;">Book Your Stay</a>
+        </nav>
+
+        <div class="nav-actions">
+          <button class="theme-toggle" aria-label="Toggle Theme Mode">☼</button>
+          <a href="login.html" class="nav-link" title="Guest Portal" style="font-size: 0.8125rem;">Sign In</a>
+          <button class="mobile-toggle" aria-label="Toggle Navigation Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header" style="padding: 100px 0 50px 0;">
+      <div class="container">
+        <span class="sub-title">Reservation Desk</span>
+        <h1>Reserve Your Luxury Stay</h1>
+        <p style="color: var(--gold-primary); font-size: 0.8125rem; margin-top: 0.5rem; text-transform: uppercase; letter-spacing: 0.08em;">
+          Frontend Demonstration Engine · No Real Financial Charges
+        </p>
+      </div>
+    </section>
+
+    <!-- Main Booking Wizard Section -->
+    <section class="section section-dark" style="padding-top: 40px;">
+      <div class="container">
+        <!-- Wizard Navigation Steps -->
+        <div class="booking-wizard-nav">
+          <div class="booking-wizard-step active" id="wizard-ind-1">
+            <span class="step-circle">1</span>
+            <span>Dates & Guests</span>
+          </div>
+          <div class="booking-wizard-step" id="wizard-ind-2">
+            <span class="step-circle">2</span>
+            <span>Choose Suite</span>
+          </div>
+          <div class="booking-wizard-step" id="wizard-ind-3">
+            <span class="step-circle">3</span>
+            <span>Guest Information</span>
+          </div>
+          <div class="booking-wizard-step" id="wizard-ind-4">
+            <span class="step-circle">4</span>
+            <span>Review & Privileges</span>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 2fr 1.15fr; gap: 2.5rem; align-items: start;">
+          <!-- Left: Step Forms -->
+          <div id="multi-step-booking-form">
+            <!-- STEP 1: Dates & Guests -->
+            <div id="step-card-1" class="booking-step-content" style="background: var(--bg-dark-card); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 2.25rem;">
+              <h3 style="margin-bottom: 0.5rem; font-size: 1.4rem;">Step 1: Select Stay Dates & Party</h3>
+              <p style="color: var(--text-secondary); margin-bottom: 2rem; font-size: 0.875rem;">
+                Check-in starts at 2:00 PM. Check-out is at 12:00 PM (Noon).
+              </p>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="step-checkin">Check-in Date *</label>
+                  <input type="date" id="step-checkin" name="checkin" class="form-control" required />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="step-checkout">Check-out Date *</label>
+                  <input type="date" id="step-checkout" name="checkout" class="form-control" required />
+                </div>
+              </div>
+
+              <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-bottom: 2rem;">
+                <div class="form-group">
+                  <label class="form-label" for="step-adults">Adults (Age 12+)</label>
+                  <select id="step-adults" class="form-control">
+                    <option value="1">1 Adult</option>
+                    <option value="2" selected>2 Adults</option>
+                    <option value="3">3 Adults</option>
+                    <option value="4">4 Adults</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="step-children">Children (0-11)</label>
+                  <select id="step-children" class="form-control">
+                    <option value="0" selected>0 Children</option>
+                    <option value="1">1 Child</option>
+                    <option value="2">2 Children</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="step-rooms-count">Rooms Required</label>
+                  <select id="step-rooms-count" class="form-control">
+                    <option value="1" selected>1 Room</option>
+                    <option value="2">2 Rooms</option>
+                    <option value="3">3 Rooms</option>
+                  </select>
+                </div>
+              </div>
+
+              <div style="display: flex; justify-content: flex-end;">
+                <button type="button" id="btn-next-step-1" class="btn btn-primary">Next: Choose Suite →</button>
+              </div>
+            </div>
+
+            <!-- STEP 2: Choose Suite -->
+            <div id="step-card-2" class="booking-step-content" style="display: none; background: var(--bg-dark-card); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 2.25rem;">
+              <h3 style="margin-bottom: 0.5rem; font-size: 1.4rem;">Step 2: Choose Your Accommodation</h3>
+              <p style="color: var(--text-secondary); margin-bottom: 1.5rem; font-size: 0.875rem;">
+                Select your desired room or signature suite from our master collection:
+              </p>
+
+              <div id="step-room-list" style="display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2rem;">
+                <!-- Populated dynamically by js/booking.js from rooms data -->
+              </div>
+
+              <div style="display: flex; justify-content: space-between;">
+                <button type="button" id="btn-back-step-2" class="btn btn-outline">← Back</button>
+                <button type="button" id="btn-next-step-2" class="btn btn-primary">Next: Guest Details →</button>
+              </div>
+            </div>
+
+            <!-- STEP 3: Guest Info -->
+            <div id="step-card-3" class="booking-step-content" style="display: none; background: var(--bg-dark-card); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 2.25rem;">
+              <h3 style="margin-bottom: 0.5rem; font-size: 1.4rem;">Step 3: Primary Guest Information</h3>
+              <p style="color: var(--text-secondary); margin-bottom: 2rem; font-size: 0.875rem;">
+                Please provide your contact details for booking confirmation and arrival communications.
+              </p>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="guest-name">Full Name *</label>
+                  <input type="text" id="guest-name" class="form-control" placeholder="e.g. Lord Alexander Vance" required />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="guest-email">Email Address *</label>
+                  <input type="email" id="guest-email" class="form-control" placeholder="name@domain.com" required />
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="guest-phone">Mobile Phone Number *</label>
+                  <input type="tel" id="guest-phone" class="form-control" placeholder="+91 98765 43210" required />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="guest-country">Country / Region</label>
+                  <input type="text" id="guest-country" class="form-control" placeholder="United Kingdom / India / United States" />
+                </div>
+              </div>
+
+              <div class="form-group" style="margin-bottom: 2rem;">
+                <label class="form-label" for="guest-requests">Special Requests & Dietary Requirements</label>
+                <textarea id="guest-requests" class="form-control" placeholder="Early arrival time, feather-free hypoallergenic bedding, champagne on ice, anniversary setup..."></textarea>
+              </div>
+
+              <div style="display: flex; justify-content: space-between;">
+                <button type="button" id="btn-back-step-3" class="btn btn-outline">← Back</button>
+                <button type="button" id="btn-next-step-3" class="btn btn-primary">Next: Add-ons & Review →</button>
+              </div>
+            </div>
+
+            <!-- STEP 4: Review & Add-ons -->
+            <div id="step-card-4" class="booking-step-content" style="display: none; background: var(--bg-dark-card); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 2.25rem;">
+              <h3 style="margin-bottom: 0.5rem; font-size: 1.4rem;">Step 4: Enhance Your Stay & Review</h3>
+              <p style="color: var(--text-secondary); margin-bottom: 1.5rem; font-size: 0.875rem;">
+                Select bespoke additions to elevate your arrival experience:
+              </p>
+
+              <div style="display: flex; flex-direction: column; gap: 0.85rem; margin-bottom: 2rem;">
+                <label style="display: flex; align-items: center; justify-content: space-between; padding: 1rem; background: var(--bg-dark-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); cursor: pointer;">
+                  <div style="display: flex; align-items: center; gap: 0.75rem;">
+                    <input type="checkbox" name="booking_addons" value="airport-transfer" />
+                    <div>
+                      <strong style="color: #fff; font-size: 0.95rem;">Private Mercedes Chauffeur Airport Transfer</strong>
+                      <p style="font-size: 0.75rem; color: var(--text-muted); margin: 0;">Meet-and-greet curbside service</p>
+                    </div>
+                  </div>
+                  <span style="color: var(--gold-primary); font-weight: 600;">+ ₹4,500</span>
+                </label>
+
+                <label style="display: flex; align-items: center; justify-content: space-between; padding: 1rem; background: var(--bg-dark-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); cursor: pointer;">
+                  <div style="display: flex; align-items: center; gap: 0.75rem;">
+                    <input type="checkbox" name="booking_addons" value="champagne-welcome" />
+                    <div>
+                      <strong style="color: #fff; font-size: 0.95rem;">Dom Pérignon & Belgian Truffles Hamper</strong>
+                      <p style="font-size: 0.75rem; color: var(--text-muted); margin: 0;">Chilled champagne in-suite on arrival</p>
+                    </div>
+                  </div>
+                  <span style="color: var(--gold-primary); font-weight: 600;">+ ₹8,500</span>
+                </label>
+
+                <label style="display: flex; align-items: center; justify-content: space-between; padding: 1rem; background: var(--bg-dark-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); cursor: pointer;">
+                  <div style="display: flex; align-items: center; gap: 0.75rem;">
+                    <input type="checkbox" name="booking_addons" value="spa-rejuvenation" />
+                    <div>
+                      <strong style="color: #fff; font-size: 0.95rem;">60-min Couples Aromatherapy Spa Session</strong>
+                      <p style="font-size: 0.75rem; color: var(--text-muted); margin: 0;">Signature hydrotherapy and botanical oils</p>
+                    </div>
+                  </div>
+                  <span style="color: var(--gold-primary); font-weight: 600;">+ ₹7,000</span>
+                </label>
+              </div>
+
+              <!-- Promo Coupon -->
+              <div style="background: var(--bg-dark-surface); padding: 1.25rem; border-radius: var(--radius-sm); border: 1px dashed var(--border-color); margin-bottom: 2rem;">
+                <label class="form-label" for="coupon-input" style="margin-bottom: 0.4rem;">Have a Privilege Promo Code?</label>
+                <div style="display: flex; gap: 0.5rem;">
+                  <input type="text" id="coupon-input" class="form-control" placeholder="e.g. JERRYLUX" style="text-transform: uppercase;" />
+                  <button type="button" id="coupon-apply-btn" class="btn btn-outline btn-sm">Apply Code</button>
+                </div>
+                <div id="coupon-msg" style="font-size: 0.75rem; margin-top: 0.5rem; font-weight: 600;"></div>
+              </div>
+
+              <!-- Demo Disclaimer Notice -->
+              <div style="background: rgba(197, 168, 128, 0.08); border: 1px solid var(--border-color); padding: 1rem; border-radius: var(--radius-sm); font-size: 0.8125rem; color: var(--gold-light); margin-bottom: 2rem;">
+                ✦ <strong>Demonstration Booking Only:</strong> This is a frontend luxury hotel prototype. No actual credit card charge or live reservation in a global distribution system (GDS) is processed.
+              </div>
+
+              <div style="display: flex; justify-content: space-between;">
+                <button type="button" id="btn-back-step-4" class="btn btn-outline">← Back</button>
+                <button type="button" id="btn-confirm-booking" class="btn btn-primary btn-lg">Confirm Demo Reservation</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Live Summary Card -->
+          <div style="position: sticky; top: 100px;">
+            <div style="background: var(--bg-dark-card); border: 1.5px solid var(--border-color); border-radius: var(--radius-md); padding: 1.75rem; box-shadow: var(--shadow-lg);">
+              <span class="sub-title">Stay Summary</span>
+              <h3 id="sum-room-name" style="font-size: 1.25rem; margin-bottom: 1rem;">Deluxe Room</h3>
+
+              <div style="border-radius: var(--radius-sm); overflow: hidden; height: 160px; margin-bottom: 1.25rem; border: 1px solid var(--border-subtle);">
+                <img id="sum-room-img" src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=800&q=80" alt="Selected Suite" style="width: 100%; height: 100%; object-fit: cover;" />
+              </div>
+
+              <div style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1.25rem; display: flex; flex-direction: column; gap: 0.4rem;">
+                <div><strong style="color: #fff;">Dates:</strong> <span id="sum-dates">Today to Tomorrow (1 night)</span></div>
+                <div><strong style="color: #fff;">Party:</strong> <span id="sum-guests">2 Adults · 1 Room</span></div>
+              </div>
+
+              <div style="border-top: 1px solid var(--border-subtle); padding-top: 1.25rem; display: flex; flex-direction: column; gap: 0.65rem; font-size: 0.875rem;">
+                <div style="display: flex; justify-content: space-between;">
+                  <span>Rate per Night:</span>
+                  <span id="calc-room-rate" style="font-weight: 600;">₹12,500</span>
+                </div>
+                <div style="display: flex; justify-content: space-between;">
+                  <span>Nights:</span>
+                  <span id="calc-nights">1 Night</span>
+                </div>
+                <div style="display: flex; justify-content: space-between;">
+                  <span>Room Total:</span>
+                  <span id="calc-room-total">₹12,500</span>
+                </div>
+                <div style="display: flex; justify-content: space-between;">
+                  <span>Add-ons:</span>
+                  <span id="calc-addons-total">₹0</span>
+                </div>
+                <div style="display: none; justify-content: space-between; color: #10b981;">
+                  <span>Privilege Discount:</span>
+                  <span id="calc-discount">- ₹0</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; color: var(--text-muted); font-size: 0.8125rem;">
+                  <span>Hospitality GST (18%):</span>
+                  <span id="calc-tax">₹2,250</span>
+                </div>
+              </div>
+
+              <div style="border-top: 1px solid var(--border-color); margin-top: 1.25rem; padding-top: 1rem; display: flex; justify-content: space-between; align-items: baseline;">
+                <span style="font-weight: 600; color: #fff;">Demo Total:</span>
+                <span id="calc-total" style="font-size: 1.6rem; font-family: var(--font-heading); font-weight: 700; color: var(--gold-primary);">₹14,750</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-top">
+          <div class="footer-brand">
+            <div class="brand-logo">
+              <div class="brand-crest">J</div>
+              <div class="brand-text">
+                <span class="brand-name">Jerry Hotel</span>
+                <span class="brand-stars">★★★★★ LUXURY RESORT</span>
+              </div>
+            </div>
+            <p>
+              "Experience Luxury. Discover Comfort." Jerry Hotel is a flagship 5-star haven dedicated to timeless elegance, exquisite culinary journeys, and heartfelt hospitality.
+            </p>
+          </div>
+
+          <div>
+            <h4 class="footer-title">The Hotel</h4>
+            <ul class="footer-links">
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="rooms.html">Rooms & Suites</a></li>
+              <li><a href="restaurant.html">Dining & Bar</a></li>
+              <li><a href="amenities.html">Wellness & Spa</a></li>
+              <li><a href="offers.html">Special Offers</a></li>
+              <li><a href="gallery.html">Visual Gallery</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="footer-title">Guest Services</h4>
+            <ul class="footer-links">
+              <li><a href="booking.html">Reserve a Stay</a></li>
+              <li><a href="my-bookings.html">My Bookings</a></li>
+              <li><a href="events.html">Weddings & Events</a></li>
+              <li><a href="reviews.html">Guest Reviews</a></li>
+              <li><a href="faq.html">Hotel FAQs</a></li>
+              <li><a href="contact.html">Contact Concierge</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="footer-title">Legal & Policies</h4>
+            <ul class="footer-links">
+              <li><a href="privacy-policy.html">Privacy Policy</a></li>
+              <li><a href="terms.html">Terms & Conditions</a></li>
+              <li><a href="cancellation-policy.html">Cancellation Policy</a></li>
+              <li><a href="admin/index.html">Admin Portal Demo</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-newsletter">
+            <h4 class="footer-title">Privilege Newsletter</h4>
+            <p style="font-size: 0.8125rem; color: var(--text-secondary); margin-bottom: 1rem;">
+              Subscribe to receive private invitations to seasonal chef tables, suite upgrades, and bespoke getaway privileges.
+            </p>
+            <form class="newsletter-form">
+              <div class="newsletter-input-group">
+                <input type="email" placeholder="Your email address" required />
+                <button type="submit">Join</button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>© 2026 Jerry Hotel. All rights reserved. Designed for supreme luxury hospitality.</p>
+          <div class="footer-legal-links">
+            <a href="privacy-policy.html">Privacy</a>
+            <a href="terms.html">Terms</a>
+            <a href="cancellation-policy.html">Cancellation</a>
+            <a href="admin/index.html">Admin</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Floating Actions -->
+    <div class="floating-widgets">
+      <a href="https://wa.me/919876543210?text=Hello%20Jerry%20Hotel,%20I%20would%20like%20to%20inquire%20about%20a%20luxury%20stay" target="_blank" rel="noopener noreferrer" class="floating-btn floating-whatsapp" title="WhatsApp Concierge" aria-label="WhatsApp Concierge">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.885-9.885 9.885m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+      </a>
+      <button class="floating-btn floating-concierge" title="Jerry AI Concierge Assistant" aria-label="Virtual Concierge">✦</button>
+      <button class="floating-btn back-to-top" title="Back to Top" aria-label="Scroll to top">↑</button>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/rooms.js"></script>
+    <script src="js/booking.js"></script>
+  </body>
+</html>

@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jerry Hotel - Luxury 5-Star Hotel & Suites | Experience Luxury. Discover Comfort.</title>
+    <meta name="description" content="Experience luxury and discover comfort at Jerry Hotel. Premium suites, Michelin-calibre dining, bespoke wellness spa, and world-class hospitality." />
+    <meta property="og:title" content="Jerry Hotel - Luxury 5-Star Hotel & Suites" />
+    <meta property="og:description" content="Experience luxury and discover comfort at Jerry Hotel. Premium suites, fine dining, bespoke wellness, and world-class hospitality." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1400&q=80" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- CSS Stylesheets -->
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+  </head>
+  <body>
+    <!-- Announcement Bar -->
+    <div class="announcement-bar">
+      <div class="container">
+        <div class="announcement-content">
+          <span class="announcement-badge">Exclusive Privilege</span>
+          <span>Complimentary Airport Limousine on Suites · Use Promo Code <strong style="color: var(--gold-primary);">JERRYLUX</strong> for 15% Off Demo Bookings</span>
+        </div>
+        <button class="announcement-close" aria-label="Close Announcement">&times;</button>
+      </div>
+    </div>
+
+    <!-- Header Navigation -->
+    <header class="site-header">
+      <div class="container nav-container">
+        <a href="index.html" class="brand-logo" aria-label="Jerry Hotel Home">
+          <div class="brand-crest">J</div>
+          <div class="brand-text">
+            <span class="brand-name">Jerry Hotel</span>
+            <span class="brand-stars">★★★★★ LUXURY RESORT</span>
+          </div>
+        </a>
+
+        <nav class="nav-menu" aria-label="Main Navigation">
+          <a href="index.html" class="nav-link active">Home</a>
+          <a href="about.html" class="nav-link">About</a>
+          <a href="rooms.html" class="nav-link">Rooms</a>
+          <a href="restaurant.html" class="nav-link">Restaurant</a>
+          <a href="amenities.html" class="nav-link">Amenities</a>
+          <a href="offers.html" class="nav-link">Offers</a>
+          <a href="gallery.html" class="nav-link">Gallery</a>
+          <a href="events.html" class="nav-link">Events</a>
+          <a href="reviews.html" class="nav-link">Reviews</a>
+          <a href="blog.html" class="nav-link">Blog</a>
+          <a href="contact.html" class="nav-link">Contact</a>
+          <a href="admin/index.html" class="nav-link" style="color: var(--gold-light);">Admin Demo</a>
+          <a href="booking.html" class="btn btn-primary btn-sm btn-mobile-book" style="display: none;">Book Your Stay</a>
+        </nav>
+
+        <div class="nav-actions">
+          <button class="theme-toggle" aria-label="Toggle Theme Mode">☼</button>
+          <a href="login.html" class="nav-link" title="Guest Portal" style="font-size: 0.8125rem;">Sign In</a>
+          <a href="booking.html" class="btn btn-primary btn-sm btn-book-now">Book Your Stay</a>
+          <button class="mobile-toggle" aria-label="Toggle Navigation Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Full-Screen Hero Section -->
+    <section class="hero-section">
+      <div class="hero-bg-wrapper">
+        <img
+          src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1920&q=85"
+          alt="Jerry Hotel Luxury Facade and Pool"
+          class="hero-bg-image"
+          onerror="this.src='https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1920&q=85'"
+        />
+        <div class="hero-overlay"></div>
+      </div>
+
+      <div class="container hero-content">
+        <span class="hero-tagline">Experience Luxury · Discover Comfort</span>
+        <h1 class="hero-title">Experience Luxury. Discover Jerry Hotel.</h1>
+        <p class="hero-subtitle">
+          Exceptional stays, extraordinary experiences. Immerse yourself in refined five-star hospitality, artisanal dining, and serene sanctuaries designed for the global traveler.
+        </p>
+        <div class="hero-actions">
+          <a href="booking.html" class="btn btn-primary btn-lg">Book Your Stay</a>
+          <a href="rooms.html" class="btn btn-outline btn-lg">Explore Suites</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Booking Search Bar Component -->
+    <div class="container booking-bar-wrapper">
+      <div class="booking-bar-card">
+        <form id="hero-booking-form" class="booking-form">
+          <div class="form-group">
+            <label class="form-label" for="search-checkin">Check-in Date</label>
+            <input type="date" id="search-checkin" name="checkin" class="form-control" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="search-checkout">Check-out Date</label>
+            <input type="date" id="search-checkout" name="checkout" class="form-control" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="search-adults">Adults</label>
+            <select id="search-adults" name="adults" class="form-control">
+              <option value="1">1 Adult</option>
+              <option value="2" selected>2 Adults</option>
+              <option value="3">3 Adults</option>
+              <option value="4">4 Adults</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="search-children">Children</label>
+            <select id="search-children" name="children" class="form-control">
+              <option value="0" selected>0 Children</option>
+              <option value="1">1 Child</option>
+              <option value="2">2 Children</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="search-rooms">Rooms</label>
+            <select id="search-rooms" name="rooms" class="form-control">
+              <option value="1" selected>1 Room</option>
+              <option value="2">2 Rooms</option>
+              <option value="3">3 Rooms</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary" style="height: 48px;">Check Availability</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- About Jerry Hotel Intro Section -->
+    <section class="section section-dark">
+      <div class="container">
+        <div class="grid-2">
+          <div class="reveal">
+            <span class="sub-title">A Heritage of Distinction</span>
+            <h2>Where Timeless Splendour Meets Contemporary Grace</h2>
+            <p class="lead" style="color: var(--text-primary); margin-bottom: 1.25rem;">
+              Jerry Hotel stands as a sanctuary of elevated refinement in the heart of the city, welcoming world travelers, dignitaries, and connoisseurs of luxury.
+            </p>
+            <p>
+              Each suite is individually commissioned with handcrafted Italian furnishings, fine natural marble, and intuitive modern technology. From our Michelin-calibre kitchens to the tranquil thermal suites of the Royal Oasis Spa, every moment is orchestrated with heartfelt warmth.
+            </p>
+            <div style="display: flex; gap: 2rem; margin: 2rem 0; border-top: 1px solid var(--border-subtle); padding-top: 1.5rem;">
+              <div>
+                <span style="font-size: 2.2rem; font-family: var(--font-heading); color: var(--gold-primary); font-weight: 700;">120+</span>
+                <p style="font-size: 0.8125rem; color: var(--text-muted); text-transform: uppercase;">Luxury Suites</p>
+              </div>
+              <div>
+                <span style="font-size: 2.2rem; font-family: var(--font-heading); color: var(--gold-primary); font-weight: 700;">3</span>
+                <p style="font-size: 0.8125rem; color: var(--text-muted); text-transform: uppercase;">Signature Restaurants</p>
+              </div>
+              <div>
+                <span style="font-size: 2.2rem; font-family: var(--font-heading); color: var(--gold-primary); font-weight: 700;">15+</span>
+                <p style="font-size: 0.8125rem; color: var(--text-muted); text-transform: uppercase;">Global Awards</p>
+              </div>
+            </div>
+            <a href="about.html" class="btn btn-outline">Discover Our Story</a>
+          </div>
+
+          <div class="reveal" style="position: relative;">
+            <div style="border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--border-color); box-shadow: var(--shadow-lg);">
+              <img
+                src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1000&q=80"
+                alt="Jerry Hotel Grand Atrium"
+                style="width: 100%; height: 500px; object-fit: cover;"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Accommodations Section -->
+    <section class="section section-surface">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="sub-title">Signature Residences</span>
+          <h2>Exquisite Rooms & Suites</h2>
+          <p class="lead">Hand-curated retreats crafted with uncompromising attention to detail, quiet acoustic serenity, and breathtaking views.</p>
+        </div>
+
+        <div id="featured-rooms-grid" class="grid-3">
+          <!-- Dynamically populated by js/rooms.js -->
+        </div>
+
+        <div style="text-align: center; margin-top: 3.5rem;" class="reveal">
+          <a href="rooms.html" class="btn btn-outline btn-lg">View All Accommodations</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Hotel Amenities Showcase -->
+    <section class="section section-dark">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="sub-title">Exceptional Facilities</span>
+          <h2>Curated For Your Comfort</h2>
+          <p class="lead">Indulge in holistic wellness, culinary masterpieces, and attentive 24/7 personalized service throughout your stay.</p>
+        </div>
+
+        <div class="grid-3">
+          <div class="amenity-card reveal">
+            <div class="amenity-icon">♨</div>
+            <h3 class="amenity-title">Royal Oasis Spa</h3>
+            <p class="amenity-desc">Holistic Ayurvedic therapies, aromatherapy steam chambers, private plunge pools, and bespoke wellness rituals.</p>
+          </div>
+          <div class="amenity-card reveal">
+            <div class="amenity-icon">🏊</div>
+            <h3 class="amenity-title">Rooftop Heated Pool</h3>
+            <p class="amenity-desc">Panoramic 360-degree infinity pool overlooking the city skyline, complete with private cabanas and cocktail service.</p>
+          </div>
+          <div class="amenity-card reveal">
+            <div class="amenity-icon">🍷</div>
+            <h3 class="amenity-title">Fine Dining & Cellar</h3>
+            <p class="amenity-desc">Three distinguished gastronomic venues helmed by world-renowned executive chefs, accompanied by rare vintages.</p>
+          </div>
+          <div class="amenity-card reveal">
+            <div class="amenity-icon">💪</div>
+            <h3 class="amenity-title">Fitness Sanctuary</h3>
+            <p class="amenity-desc">Technogym biometric equipment, certified personal training staff, and serene morning yoga pavillions.</p>
+          </div>
+          <div class="amenity-card reveal">
+            <div class="amenity-icon">🚗</div>
+            <h3 class="amenity-title">Chauffeur Limousines</h3>
+            <p class="amenity-desc">Private fleet of Mercedes-Benz and BMW sedans with complimentary airport transfers for all suite bookings.</p>
+          </div>
+          <div class="amenity-card reveal">
+            <div class="amenity-icon">🛎</div>
+            <h3 class="amenity-title">24/7 Dedicated Butler</h3>
+            <p class="amenity-desc">Discreet, intuitive service catering to every bespoke itinerary, private in-suite dining, and wardrobe pressing.</p>
+          </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 3rem;" class="reveal">
+          <a href="amenities.html" class="btn btn-outline">Explore All Amenities</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Restaurant & Dining Highlight -->
+    <section class="section section-surface" style="padding: 100px 0;">
+      <div class="container">
+        <div class="grid-2">
+          <div class="reveal">
+            <div style="border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--border-color); box-shadow: var(--shadow-lg);">
+              <img
+                src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1000&q=80"
+                alt="Fine Dining at The Grand Palm"
+                style="width: 100%; height: 460px; object-fit: cover;"
+              />
+            </div>
+          </div>
+          <div class="reveal">
+            <span class="sub-title">Culinary Artistry</span>
+            <h2>The Grand Palm & Sky Lounge</h2>
+            <p class="lead" style="color: var(--text-primary); margin-bottom: 1.25rem;">
+              An unforgettable gastronomic journey uniting authentic regional flavours with modern European flair.
+            </p>
+            <p>
+              Savour dry-aged cuts, fresh coastal seafood, organic seasonal produce, and decadent confectionery prepared live in our theatrical open kitchen. Ascend to The Starlight Sky Lounge for rare malts and signature botanical mixology under the evening stars.
+            </p>
+            <ul style="margin: 1.5rem 0; display: flex; flex-direction: column; gap: 0.6rem; font-size: 0.9rem; color: var(--text-secondary);">
+              <li><strong style="color: var(--gold-primary);">Breakfast:</strong> 06:30 AM – 10:30 AM (Daily)</li>
+              <li><strong style="color: var(--gold-primary);">Lunch & High Tea:</strong> 12:30 PM – 04:30 PM</li>
+              <li><strong style="color: var(--gold-primary);">Gourmet Dinner:</strong> 07:00 PM – 11:30 PM</li>
+            </ul>
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+              <a href="restaurant.html" class="btn btn-primary">Explore Restaurant & Menus</a>
+              <a href="restaurant.html#table-booking" class="btn btn-outline">Reserve a Table</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Special Offers Teaser -->
+    <section class="section section-dark">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="sub-title">Seasonal Privileges</span>
+          <h2>Exclusive Curated Offers</h2>
+          <p class="lead">Unlock extraordinary moments with our limited-edition bespoke getaway packages.</p>
+        </div>
+
+        <div class="grid-3">
+          <div class="offer-card reveal">
+            <div class="offer-media">
+              <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=800&q=80" alt="Weekend Getaway" class="offer-img" />
+              <span class="offer-tag">15% Off</span>
+            </div>
+            <div class="offer-body">
+              <h3 class="offer-title">The Royal Weekend Escape</h3>
+              <p class="offer-desc">Enjoy complimentary champagne high tea, late check-out till 4:00 PM, and 20% off all spa therapies.</p>
+              <div class="offer-meta">
+                <span>Code: <span class="coupon-code">JERRYLUX</span></span>
+                <a href="booking.html?coupon=JERRYLUX" class="btn btn-gold-outline btn-sm">Claim Offer</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="offer-card reveal">
+            <div class="offer-media">
+              <img src="https://images.unsplash.com/photo-1578683010236-d716f9a3f461?auto=format&fit=crop&w=800&q=80" alt="Honeymoon Romance" class="offer-img" />
+              <span class="offer-tag">Celebration</span>
+            </div>
+            <div class="offer-body">
+              <h3 class="offer-title">Enchanted Romance Package</h3>
+              <p class="offer-desc">Candlelight 5-course rooftop dinner, couples aromatherapy massage, and rose petal turndown bath ritual.</p>
+              <div class="offer-meta">
+                <span>Code: <span class="coupon-code">HONEYMOON</span></span>
+                <a href="booking.html?coupon=HONEYMOON" class="btn btn-gold-outline btn-sm">Claim Offer</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="offer-card reveal">
+            <div class="offer-media">
+              <img src="https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&w=800&q=80" alt="Business Luxury" class="offer-img" />
+              <span class="offer-tag">Executive</span>
+            </div>
+            <div class="offer-body">
+              <h3 class="offer-title">Corporate Executive Stay</h3>
+              <p class="offer-desc">Jerry Club lounge access, pressing of two garments daily, complimentary airport transfers, and private boardroom hours.</p>
+              <div class="offer-meta">
+                <span>Code: <span class="coupon-code">WELCOME10</span></span>
+                <a href="booking.html?coupon=WELCOME10" class="btn btn-gold-outline btn-sm">Claim Offer</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 3rem;" class="reveal">
+          <a href="offers.html" class="btn btn-outline">View All Special Offers</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials / Guest Reviews -->
+    <section class="section section-surface">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="sub-title">Guest Testimonials · Demo Reviews</span>
+          <h2>Words from Discerning Travelers</h2>
+          <p class="lead">Sample demonstration reviews reflecting the legendary standard of Jerry Hotel hospitality.</p>
+        </div>
+
+        <div class="grid-3">
+          <div class="review-card reveal">
+            <div class="review-stars">★★★★★</div>
+            <blockquote class="review-quote">
+              "Jerry Hotel is unequivocally the pinnacle of luxury. The Presidential Suite terrace jacuzzi overlooking the skyline was pure magic, and the butler service was flawless."
+            </blockquote>
+            <div class="review-author">
+              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80" alt="Lady Victoria Montgomery" class="author-avatar" />
+              <div class="author-info">
+                <h4>Lady Victoria Montgomery</h4>
+                <span>London, United Kingdom · <span class="demo-badge">Demo Review</span></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="review-card reveal">
+            <div class="review-stars">★★★★★</div>
+            <blockquote class="review-quote">
+              "The culinary precision at The Grand Palm is on par with three-star Michelin establishments in Paris. The sommelier paired exquisite vintages with every course."
+            </blockquote>
+            <div class="review-author">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80" alt="Laurent Dubois" class="author-avatar" />
+              <div class="author-info">
+                <h4>Laurent Dubois</h4>
+                <span>Paris, France · <span class="demo-badge">Demo Review</span></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="review-card reveal">
+            <div class="review-stars">★★★★★</div>
+            <blockquote class="review-quote">
+              "From seamless airport chauffeur greeting to express check-in, Jerry Hotel sets a world standard. The Royal Oasis Spa hydrotherapy restored my soul."
+            </blockquote>
+            <div class="review-author">
+              <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=150&q=80" alt="Aarav Singhania" class="author-avatar" />
+              <div class="author-info">
+                <h4>Aarav Singhania</h4>
+                <span>Mumbai, India · <span class="demo-badge">Demo Review</span></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 3rem;" class="reveal">
+          <a href="reviews.html" class="btn btn-outline">Read All Reviews & Submit Your Own</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Destination Highlights -->
+    <section class="section section-dark">
+      <div class="container">
+        <div class="grid-2">
+          <div class="reveal">
+            <span class="sub-title">A Premier Location</span>
+            <h2>At the Crossroads of Culture and Heritage</h2>
+            <p class="lead" style="color: var(--text-primary); margin-bottom: 1.25rem;">
+              Ideally situated adjacent to historic monuments, premier luxury shopping arcades, and tranquil botanical gardens.
+            </p>
+            <p>
+              Jerry Hotel offers effortless access to the city’s crown attractions. Our dedicated chief concierge curates bespoke private helicopter charters, museum access after-hours, and personalized walking tours.
+            </p>
+            <div style="display: flex; gap: 1.5rem; margin-top: 1.5rem;">
+              <div>
+                <strong style="color: var(--gold-primary); font-size: 1.1rem;">15 Mins</strong>
+                <p style="font-size: 0.8125rem; color: var(--text-muted);">International Airport</p>
+              </div>
+              <div>
+                <strong style="color: var(--gold-primary); font-size: 1.1rem;">5 Mins</strong>
+                <p style="font-size: 0.8125rem; color: var(--text-muted);">Luxury Shopping Boulevard</p>
+              </div>
+              <div>
+                <strong style="color: var(--gold-primary); font-size: 1.1rem;">8 Mins</strong>
+                <p style="font-size: 0.8125rem; color: var(--text-muted);">Royal Heritage Palace</p>
+              </div>
+            </div>
+            <div style="margin-top: 2rem;">
+              <a href="contact.html" class="btn btn-outline">View Location & Map</a>
+            </div>
+          </div>
+
+          <div class="reveal">
+            <div style="border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--border-color); box-shadow: var(--shadow-lg);">
+              <img
+                src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=1000&q=80"
+                alt="Jerry Hotel Resort Grounds"
+                style="width: 100%; height: 420px; object-fit: cover;"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-top">
+          <div class="footer-brand">
+            <div class="brand-logo">
+              <div class="brand-crest">J</div>
+              <div class="brand-text">
+                <span class="brand-name">Jerry Hotel</span>
+                <span class="brand-stars">★★★★★ LUXURY RESORT</span>
+              </div>
+            </div>
+            <p>
+              "Experience Luxury. Discover Comfort." Jerry Hotel is a flagship 5-star haven dedicated to timeless elegance, exquisite culinary journeys, and heartfelt hospitality.
+            </p>
+            <p style="font-size: 0.75rem; color: var(--gold-primary); margin-top: 0.75rem;">
+              Demo Prototype: Demonstration hotel website crafted with pure HTML5, CSS3, and Vanilla JavaScript.
+            </p>
+          </div>
+
+          <div>
+            <h4 class="footer-title">The Hotel</h4>
+            <ul class="footer-links">
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="rooms.html">Rooms & Suites</a></li>
+              <li><a href="restaurant.html">Dining & Bar</a></li>
+              <li><a href="amenities.html">Wellness & Spa</a></li>
+              <li><a href="offers.html">Special Offers</a></li>
+              <li><a href="gallery.html">Visual Gallery</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="footer-title">Guest Services</h4>
+            <ul class="footer-links">
+              <li><a href="booking.html">Reserve a Stay</a></li>
+              <li><a href="my-bookings.html">My Bookings</a></li>
+              <li><a href="events.html">Weddings & Events</a></li>
+              <li><a href="reviews.html">Guest Reviews</a></li>
+              <li><a href="faq.html">Hotel FAQs</a></li>
+              <li><a href="contact.html">Contact Concierge</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="footer-title">Legal & Policies</h4>
+            <ul class="footer-links">
+              <li><a href="privacy-policy.html">Privacy Policy</a></li>
+              <li><a href="terms.html">Terms & Conditions</a></li>
+              <li><a href="cancellation-policy.html">Cancellation Policy</a></li>
+              <li><a href="admin/index.html">Admin Portal Demo</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-newsletter">
+            <h4 class="footer-title">Privilege Newsletter</h4>
+            <p style="font-size: 0.8125rem; color: var(--text-secondary); margin-bottom: 1rem;">
+              Subscribe to receive private invitations to seasonal chef tables, suite upgrades, and bespoke getaway privileges.
+            </p>
+            <form class="newsletter-form">
+              <div class="newsletter-input-group">
+                <input type="email" placeholder="Your email address" required />
+                <button type="submit">Join</button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>© 2026 Jerry Hotel. All rights reserved. Designed for supreme luxury hospitality.</p>
+          <div class="footer-legal-links">
+            <a href="privacy-policy.html">Privacy</a>
+            <a href="terms.html">Terms</a>
+            <a href="cancellation-policy.html">Cancellation</a>
+            <a href="admin/index.html">Admin</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Floating Actions: WhatsApp, AI Concierge, Back to Top -->
+    <div class="floating-widgets">
+      <a
+        href="https://wa.me/919876543210?text=Hello%20Jerry%20Hotel,%20I%20would%20like%20to%20inquire%20about%20a%20luxury%20stay"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="floating-btn floating-whatsapp"
+        title="Chat with Jerry Hotel on WhatsApp"
+        aria-label="WhatsApp Concierge"
+      >
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.885-9.885 9.885m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+      </a>
+
+      <button class="floating-btn floating-concierge" title="Jerry AI Concierge Assistant" aria-label="Virtual Concierge">
+        ✦
+      </button>
+
+      <button class="floating-btn back-to-top" title="Back to Top" aria-label="Scroll to top">
+        ↑
+      </button>
+    </div>
+
+    <!-- Core JavaScript Files -->
+    <script src="js/main.js"></script>
+    <script src="js/rooms.js"></script>
+  </body>
+</html>
